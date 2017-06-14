@@ -1,0 +1,19 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "NBA history and data visualization application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petienne1/myApp.git"
+  },
+  "author": "pierry etienne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/petienne1/myApp/issues"
+  },
+  "homepage": "https://github.com/petienne1/myApp#readme"
+}
