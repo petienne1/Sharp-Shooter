@@ -22,5 +22,5 @@ app.get('/', function(request, response) {
 });
 
 app.listen(3030, () => {
-  console.log('Listening on port 3030');
+  console.log('Listening on port 3030...');
 });
