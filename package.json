@@ -28,6 +28,7 @@
     "webpack": "^3.0.0"
   },
   "devDependencies": {
-    "babel": "^6.23.0"
+    "babel": "^6.23.0",
+    "eslint": "^4.1.1"
   }
 }

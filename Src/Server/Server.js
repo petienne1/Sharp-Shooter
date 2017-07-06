@@ -5,7 +5,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const NBA = require('nba');
+
+const statsRouter = require('./router/stats-router');
 
 // create an application instance and assign it to app variable
 const app = express();
@@ -21,19 +22,8 @@ app.use(bodyParser.json());
 // it will serve the index.html on the root of that directory on a GET to '/'
 app.use(express.static(path.join(__dirname, '../Client')));
 // /App/index.jsx
-
+app.use('/stats', statsRouter);
 // API
-app.get('/player', (request, response) => {
-
-  let player = request.query.playerName;
-  let playerInfo = NBA.findPlayer(player);
-
-NBA.stats.playerInfo({ PlayerID: playerInfo.playerId })
-    .then(function(results) {
-      console.log(results);
-      response.send(results);
-    });
-});
 
 // Routes - creates a route that accepts HTTP get requests
 // on GET request to the URL, run function
