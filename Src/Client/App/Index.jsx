@@ -1,10 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
+import Search from './Components/search.jsx';
 
 class App extends React.Component {
-  render () {
-    return (<p> Hello React! </p>)
+  render() {
+    return (
+      <div>
+        HELLO WORLD
+      </div>
+    );
   }
 }
 
-render(<App/>, document.getElementById('app'));
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
