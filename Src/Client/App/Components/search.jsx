@@ -8,14 +8,14 @@ class Search extends React.Component {
     super(props);
     this.state = {
       getInitialState: function () {
-        return { searchTerm: "", searchUrl: "" };
+        return { searchTerm: '', searchUrl: '' };
       },
     };
   }
 
   render() {
     return (
-      <div>
+      <form>
         <input
           onKeyUp={this.handleKeyUp}
           onChange={this.handleChange}
@@ -23,7 +23,12 @@ class Search extends React.Component {
           placeholder="Search for a player..."
           value={this.state.searchTerm}
         />
-      </div>
+        <p>
+          <button>Search</button>
+          <button>Advanced Search</button>
+          <button>Compare</button>
+        </p>
+      </form>
     );
   }
 }

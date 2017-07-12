@@ -3,7 +3,7 @@ import Search from './search.jsx';
 
 const App = () => (
   <div>
-    <h1>Hello World</h1>
+    <h1>NBA StatBook</h1>
     <Search />
   </div>
 );
