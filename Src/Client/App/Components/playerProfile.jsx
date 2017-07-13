@@ -11,6 +11,10 @@ class PlayerProfile extends React.Component {
 }
 
 render () {
+  const playerProfile = this._getPlayerProfile();
+  if(this.state.showPlayerProfile) {
+    
+  }
   return (
     <h1>Player Info</h1>
     <h2>{currentPlayer.displayFirstLast}</h2>
@@ -22,7 +26,7 @@ render () {
     <h4>{"Weight: " + currentPlayer.weight}</h4>
     <h4>{"Position: " + currentPlayer.position}</h4>
     <h4>{"Jersey: " + currentPlayer.jersey}</h4>
-  )
+  );
 }
 
 export default PlayerProfile;

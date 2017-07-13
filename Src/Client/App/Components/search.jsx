@@ -15,20 +15,43 @@ class Search extends React.Component {
 
   render() {
     return (
-      <form>
-        <input
-          onKeyUp={this.handleKeyUp}
-          onChange={this.handleChange}
-          type="search"
-          placeholder="Search for a player..."
-          value={this.state.searchTerm}
-        />
-        <p>
-          <button>Search</button>
-          <button>Advanced Search</button>
-          <button>Compare</button>
-        </p>
-      </form>
+
+      <div className="into-header">
+        <div className="continer">
+
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="intro-message">
+                <h1>Sharp Shooter</h1>
+                <form>
+                  <input
+                    onKeyUp={this.handleKeyUp}
+                    onChange={this.handleChange}
+                    type="search"
+                    placeholder="Search for a player..."
+                    value={this.state.searchTerm}
+                  />
+                  <hr className="intro-divider" />
+                  <ul className="list-inline intro-buttons">
+                    <li>
+                      <a className="btn btn-default btn-lg">
+                        <span className="button-name">Search</span></a>
+                    </li>
+                    <li>
+                      <a className="btn btn-default btn-lg">
+                        <span className="button-name">Advanced</span></a>
+                    </li>
+                    <li>
+                      <a className="btn btn-default btn-lg">
+                        <span className="button-name">Compare</span></a>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
