@@ -1,22 +1,21 @@
 // import React from 'react';
-
+//
 // class PlayerProfile extends React.Component {
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     showPlayerProfile: false
-  //   },
-  // };
-// }
-
-// render () {
-//   const playerProfile = this._getPlayerProfile();
-//   if(this.state.showPlayerProfile) {
+//
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       showPlayerProfile: false
+//     };
 //
 //   }
+// }
+//
+// render () {
+//   const players =
+//   const filterPlayers = createFilterPlayers({ players });
 //   return (
-//     <h1>Player Info</h1>
+//     <h1>Player Profile</h1>
 //     <h2>{currentPlayer.displayFirstLast}</h2>
 //     <h4>{"School: " + currentPlayer.school}</h4>
 //     <h4>{"Drafted: " + currentPlayer.draftYear}</h4>
@@ -28,5 +27,5 @@
 //     <h4>{"Jersey: " + currentPlayer.jersey}</h4>
 //   );
 // }
-
+//
 // export default PlayerProfile;
