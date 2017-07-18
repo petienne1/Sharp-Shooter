@@ -13,12 +13,28 @@ export default class Search extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ searchTerm: e.target.value });
-  }
+  // handleChange(event) {
+  //   this.setState({ searchTerm: event.target.value });
+  // }
 
-  handleKeyUp(e) {
-    if (e.key === 'Enter' && this.state.searchTerm !== '') {
+  handleChange(event) {
+  event.preventDefault();
+  let searchTerm = event.target.value;
+  //console.log('+++ handleSubmit data => ', data);
+  //console.log('addQuestion', this.props.addQuestion);
+  let playerListURL = "localhost:3000/players";
+  axios.get(playerListURL)
+    .then((returnedPlayerList: []) => {
+    return this.setState({
+      questionsLoaded: true,
+      returnedPlayerList: returnedPlayerList.data
+    })
+  }
+);
+}
+
+  handleKeyUp(event) {
+    if (event.key === 'Enter' && this.state.searchTerm !== '') {
       const searchUrl = `search/multi?query=${this.state.searchTerm}&api_key=${this.apiKey}`;
       this.setState({ searchUrl });
     }

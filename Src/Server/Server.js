@@ -14,7 +14,7 @@ const app = express();
 // MiddleWare
 // body parser makes it possible to post JSON to the Server
 // we can access data we post using 'request.body'
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Static file serve
