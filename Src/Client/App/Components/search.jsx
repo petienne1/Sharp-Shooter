@@ -1,5 +1,5 @@
 import React from 'react';
-// import { render } from 'react-dom';
+import axios from 'axios';
 
 
 export default class Search extends React.Component {
@@ -11,44 +11,40 @@ export default class Search extends React.Component {
       searchUrl: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  // handleChange(event) {
-  //   this.setState({ searchTerm: event.target.value });
-  // }
 
   handleChange(event) {
-  event.preventDefault();
-  let searchTerm = event.target.value;
-  //console.log('+++ handleSubmit data => ', data);
-  //console.log('addQuestion', this.props.addQuestion);
-  let playerListURL = "localhost:3000/players";
-  axios.get(playerListURL)
-    .then((returnedPlayerList: []) => {
-    return this.setState({
-      questionsLoaded: true,
-      returnedPlayerList: returnedPlayerList.data
-    })
+    this.setState({ searchTerm: event.target.value });
   }
-);
+
+  handleSubmit(e) {
+    e.preventDefault();
+    axios.get(`/stats/players?player=${this.state.searchTerm}`)
+      .then((data) => {
+        console.log(data);
+        // return this.setState({
+        //   returnedPlayerList: returnedPlayerList.data
+        // })
+    }
+  );
 }
 
-  handleKeyUp(event) {
-    if (event.key === 'Enter' && this.state.searchTerm !== '') {
-      const searchUrl = `search/multi?query=${this.state.searchTerm}&api_key=${this.apiKey}`;
-      this.setState({ searchUrl });
-    }
-  }
+  // handleKeyUp(event) {
+  //   if (event.key === 'Enter' && this.state.searchTerm !== '') {
+  //     const searchUrl = "search/multi?query=" + this.state.searchTerm + "&api_key=" + this.apiKey;
+  //     this.setState({ searchUrl });
+  //   }
+  // }
 
   render() {
     return (
       <div className="header-container">
         <div className="header-info">
           <h1 className="app-name">Sharp Shooter</h1>
-          <form className="form-group">
+          <form className="form-group" onSubmit={this.handleSubmit}>
             <input
               className="header-input"
-              onKeyUp={this.handleKeyUp}
               onChange={this.handleChange}
               type="search"
               placeholder="Search for a player..."
@@ -56,8 +52,8 @@ export default class Search extends React.Component {
             />
             <ul className="list-inline intro-buttons">
               <li>
-                <a className="btn btn-default btn-lg">
-                  <span className="button-name">Search</span></a>
+                <button type="submit" className="btn btn-default btn-lg">
+                  <span className="button-name">Search</span></button>
               </li>
               <li>
                 <a className="btn btn-default btn-lg">
