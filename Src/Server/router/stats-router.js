@@ -5,11 +5,10 @@ const NBA = require('nba');
 const app = express.Router();
 
 app.get('/players', (request, response) => {
-  // console.log('parameters on call! : ', request.query)
   const player = request.query.player;
   response.send(NBA.searchPlayers(player));
 });
-
+// app.get('players', Controller.getPlayerName);
 app.get('/playerstats', Controller.getPlayerStats);
 app.get('/shots', Controller.getPlayerShots);
 

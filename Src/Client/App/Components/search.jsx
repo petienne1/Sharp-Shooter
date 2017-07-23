@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import SweetScroll from 'sweet-scroll';
+import PlayerProfile from './playerProfile.jsx';
 
 
 export default class Search extends React.Component {
@@ -9,6 +11,7 @@ export default class Search extends React.Component {
     this.state = {
       searchTerm: '',
       searchUrl: '',
+      showPlayerProfile: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,19 +23,21 @@ export default class Search extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    axios.get(`/stats/players?player=${this.state.searchTerm}`)
+    console.log(this.state.searchTerm);
+    axios.get(`/stats/playerstats?player=${this.state.searchTerm}`)
       .then((data) => {
         console.log(data);
+        this.setState({ showPlayerProfile: true });
         // return this.setState({
         //   returnedPlayerList: returnedPlayerList.data
         // })
-    }
+      },
   );
-}
+  }
 
   // handleKeyUp(event) {
   //   if (event.key === 'Enter' && this.state.searchTerm !== '') {
-  //     const searchUrl = "search/multi?query=" + this.state.searchTerm + "&api_key=" + this.apiKey;
+  //   const searchUrl = "search/multi?query=" + this.state.searchTerm + "&api_key=" + this.apiKey;
   //     this.setState({ searchUrl });
   //   }
   // }
@@ -52,19 +57,26 @@ export default class Search extends React.Component {
             />
             <ul className="list-inline intro-buttons">
               <li>
-                <button type="submit" className="btn btn-default btn-lg">
-                  <span className="button-name">Search</span></button>
+                <button
+                  type="submit"
+                  className="btn btn-default btn-lg"
+                  onSubmit={this.handleChange}
+                >
+                  <span className="button-name">Search</span>
+                </button>
+
               </li>
               <li>
-                <a className="btn btn-default btn-lg">
-                  <span className="button-name">Advanced</span></a>
+                <button className="btn btn-default btn-lg">
+                  <span className="button-name">Advanced</span></button>
               </li>
               <li>
-                <a className="btn btn-default btn-lg">
-                  <span className="button-name">Compare</span></a>
+                <button className="btn btn-default btn-lg">
+                  <span className="button-name">Compare</span></button>
               </li>
             </ul>
           </form>
+          <div>{this.state.showPlayerProfile ? <PlayerProfile /> : null}</div>
         </div>
       </div>
     );

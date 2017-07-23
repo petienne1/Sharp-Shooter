@@ -2,10 +2,17 @@ const NBA = require('nba');
 
 module.exports = {
 
+  getPlayerName: (request, response) => {
+    const player = request.query.player;
+    response.send(NBA.searchPlayers(player));
+  },
+
   getPlayerStats: (request, response) => {
-    const player = request.query.playerName;
+    const player = request.query.player;
+    console.log(request.query);
     const playerInfo = NBA.findPlayer(player);
 
+    console.log(playerInfo);
 
     NBA.stats.playerInfo({ PlayerID: playerInfo.playerId })
      .then((results) => {
@@ -16,7 +23,7 @@ module.exports = {
 
   getPlayerShots: (request, response) => {
     console.log(request.query);
-    const player = request.query.playerName;
+    const player = request.query.player;
     const season = request.query.season;
     const playerInfo = NBA.findPlayer(player);
 
