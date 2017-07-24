@@ -76,8 +76,9 @@ export default class Search extends React.Component {
               </li>
             </ul>
           </form>
-          <div>{this.state.showPlayerProfile ? <PlayerProfile /> : null}</div>
         </div>
+        <div className="player-profile">{this.state.showPlayerProfile ?
+          <PlayerProfile /> : null}</div>
       </div>
     );
   }
