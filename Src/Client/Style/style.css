@@ -3,6 +3,7 @@
   color: white;
   text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
   font-size: 5em;
+  text-align: center;
 }
 
 :focus {
@@ -13,19 +14,25 @@
   background-image: url(./images/shooters/maxresdefault.jpg);
   background-size: cover;
   background-position: center;
-  /*opacity: 0.5;*/
   height: 100vh;
   width: 100vw;
-  display: flex;
+  /*display: flex;*/
   justify-content: center;
-  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 90px;
 }
 
 .header-info {
-  display: flex;
-  flex-direction: column;
+  display: block;
+  margin-top: -20px;
+  /*flex-direction: column;*/
   justify-content: center;
-  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 90px;
+  height: 100%;
+  width: 100%;
 }
 
 .header-input {
@@ -37,7 +44,7 @@
   width: 100%;
   border: none;
   border-bottom: 1px solid white;
-  margin: 10px;
+  margin: 100px;
 }
 
 /* Player Profile Component */
@@ -50,23 +57,23 @@
   border-radius: 2px;
   overflow:  hidden;
   background-color: #669999;
-  height: 325px;
-  width: 800px;
+  height: vh;
+  width: vw;
   transition: all 400ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
   .z-1;
 }
 
 .profile-pic-item {
-  display: flex;
-  flex-direction: row;
+  /*display: flex;
+  flex-direction: row;*/
   background-image: url(./images/profile/curry.png);
   width: 350px;
   height: 254px;
 }
 
 .profile-info-item {
-  display: flex;
-  flex-direction: row;
+  /*display: flex;
+  flex-direction: row;*/
   font-size: 50px;
   padding-left: 35px;
 }
