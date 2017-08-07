@@ -1,1 +1,1 @@
-# myApp
+# Sharp Shooter
