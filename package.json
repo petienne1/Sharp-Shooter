@@ -1,5 +1,5 @@
 {
-  "name": "Sharp Shooter",
+  "name": "SharpShooter",
   "version": "1.0.0",
   "description": "Basketball Analytics, Data Visualization Application that Generates NBA Player Shot Charts",
   "main": "index.js",
