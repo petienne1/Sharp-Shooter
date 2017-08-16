@@ -12,6 +12,7 @@ export default class Search extends React.Component {
       searchTerm: '',
       searchUrl: '',
       showPlayerProfile: false,
+      playerData: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,10 +25,11 @@ export default class Search extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state.searchTerm);
-    axios.get(`/stats/playerstats?player=${this.state.searchTerm}`)
+    const playerObject = axios.get(`/stats/playerstats?player=${this.state.searchTerm}`)
       .then((data) => {
         console.log(data);
         this.setState({ showPlayerProfile: true });
+        this.setState({ playerData: playerObject });
         // return this.setState({
         //   returnedPlayerList: returnedPlayerList.data
         // })
@@ -47,7 +49,7 @@ export default class Search extends React.Component {
       <div className="header-container">
         <div className="header-info">
           <h1 className="app-name">Sharp Shooter</h1>
-          <form className="form-group" onSubmit={this.handleSubmit}>
+          <form className="form-group" onSubmit={this.props.loadPlayerData}>
             <input
               className="header-input"
               onChange={this.handleChange}

@@ -4,7 +4,7 @@ import React from 'react';
 const PlayerProfile = () => (
   <div className="profile-container">
     <div className="profile-pic-item" />
-    <div className="profile-info-item">Player Name</div>
+    <div className="profile-name-item">Player Name</div>
   </div>
 );
 
