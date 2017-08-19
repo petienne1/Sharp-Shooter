@@ -34,8 +34,11 @@ export default class Search extends React.Component {
         //   returnedPlayerList: returnedPlayerList.data
         // })
       },
-  );
+    );
   }
+
+  this.props.addPlayer(player);
+
 
   // handleKeyUp(event) {
   //   if (event.key === 'Enter' && this.state.searchTerm !== '') {
@@ -49,7 +52,7 @@ export default class Search extends React.Component {
       <div className="header-container">
         <div className="header-info">
           <h1 className="app-name">Sharp Shooter</h1>
-          <form className="form-group" onSubmit={this.props.loadPlayerData}>
+          <form className="form-group" onSubmit={this.handleSubmit}>
             <input
               className="header-input"
               onChange={this.handleChange}
@@ -62,7 +65,7 @@ export default class Search extends React.Component {
                 <button
                   type="submit"
                   className="btn btn-default btn-lg"
-                  onSubmit={this.handleChange}
+                  onSubmit={this.loadPlayerData}
                 >
                   <span className="button-name">Search</span>
                 </button>
