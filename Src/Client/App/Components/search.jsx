@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import SweetScroll from 'sweet-scroll';
 import PlayerProfile from './playerProfile.jsx';
+import App from './playerProfile.jsx';
 
 
 export default class Search extends React.Component {
@@ -35,9 +36,10 @@ export default class Search extends React.Component {
         // })
       },
     );
+    this.props.addPlayer(player);
   }
 
-  this.props.addPlayer(player);
+
 
 
   // handleKeyUp(event) {
