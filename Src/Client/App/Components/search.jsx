@@ -26,20 +26,14 @@ export default class Search extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state.searchTerm);
-    const playerObject = axios.get(`/stats/playerstats?player=${this.state.searchTerm}`)
-      .then((data) => {
-        console.log(data);
-        this.setState({ showPlayerProfile: true });
-        this.setState({ playerData: playerObject });
-        // return this.setState({
-        //   returnedPlayerList: returnedPlayerList.data
-        // })
+    const playerObject = axios.get(`/stats/playerstats?player=${this.state.searchTerm}`);
+      playerObject.then((response) => {
+        this.props.addPlayer(response.data);
       },
     );
-    this.props.addPlayer(player);
+    // console.log('PLAYER OBJECT', playerObject)
+
   }
-
-
 
 
   // handleKeyUp(event) {

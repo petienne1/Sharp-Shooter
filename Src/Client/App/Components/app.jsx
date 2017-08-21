@@ -12,9 +12,7 @@ class App extends React.Component {
 
     this.addPlayer = this.addPlayer.bind(this);
     // getInitialState
-    this.state = {
-      playerData: {},
-    };
+    this.state = {};
     // looks for method and binds it to App component so that this can equal App
     // this.handleSubmit = this.handleSubmit.bind(this);
     // this.loadPlayerData = this.loadPlayerData.bind(this);
@@ -35,13 +33,15 @@ class App extends React.Component {
   //   );
   // }
 
-  addPlayer(player) {
+  addPlayer(playerObject) {
     // Make a Copy of playerData State
-    let playerData = { ...this.state.playerData };
+    // console.log('playerObject in App: ', playerObject.data)
+    // let playerData = { ...this.state.playerData };
     // Add in New Player data
-    playerData = axios.get(`/stats/playerstats?player=${this.state.searchTerm}`);
+    // playerData = axios.get(`/stats/playerstats?player=${this.state.searchTerm}`);
     // Set state
-    this.setState({ playerData });
+    // console.log(playerData);
+    this.setState({ playerObject });
   }
 
   // loadPlayerData() {
@@ -55,9 +55,20 @@ class App extends React.Component {
     return (
       <div>
         <Search addPlayer={this.addPlayer} />
+        {this.state.playerObject && <PlayerProfile playerInfo={this.state.playerObject} bananas='bananas' />}
       </div>
     );
   }
 }
 
 export default App;
+
+// const callback = (response) => {
+//   console.log(response)
+// }
+//
+// http.get(url, callback)
+// console.log('http is done... kinda')
+//
+// const promise = axios.get(url)
+// promise.then(callback)
