@@ -11,7 +11,7 @@ const PlayerProfile = (props) => {
   // const string = `stuff ${1 + 1} put whatever we want ${1 > 2} more stuff`
 
   let image;
-  const setDefaultImg = () => image.src = '/Style/images/profile/russellwestbrook.png'
+  const setDefaultImg = () => image.src = '/Style/images/profile/silhouette.png'
 
   return (
     <div className="profile-container">
@@ -22,6 +22,13 @@ const PlayerProfile = (props) => {
       </div>
       <div className="profile-name-item">{ info.firstName + ' ' + info.lastName }</div>
         {/*<div className="profile-name-item">{ `${firstName} ${lastName}` }</div>*/}
+        <p>{'Team: ' + info.teamCity + ' ' + info.teamName}</p>
+        <p>{'Position: ' + info.position}</p>
+        <p>{'Height: ' + info.height}</p>
+        <p>{'Weight: ' + info.weight}</p>
+        <p>{'Jersey: ' + info.jersey}</p>
+        <p>{'School: ' + info.school}</p>
+        <p>{'Experience: ' + info.seasonExp}</p>
       <p>{JSON.stringify(props)}</p>
     </div>
   );
