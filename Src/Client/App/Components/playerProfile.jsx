@@ -22,14 +22,14 @@ const PlayerProfile = (props) => {
       </div>
       <div className="profile-name-item">{ info.firstName + ' ' + info.lastName }</div>
         {/*<div className="profile-name-item">{ `${firstName} ${lastName}` }</div>*/}
-        <p>{'Team: ' + info.teamCity + ' ' + info.teamName}</p>
-        <p>{'Position: ' + info.position}</p>
-        <p>{'Height: ' + info.height}</p>
-        <p>{'Weight: ' + info.weight}</p>
-        <p>{'Jersey: ' + info.jersey}</p>
-        <p>{'School: ' + info.school}</p>
-        <p>{'Experience: ' + info.seasonExp}</p>
-      <p>{JSON.stringify(props)}</p>
+      <p>{'Team: ' + info.teamCity + ' ' + info.teamName}</p>
+      <p>{'Position: ' + info.position}</p>
+      <p>{'Height: ' + info.height}</p>
+      <p>{'Weight: ' + info.weight}</p>
+      <p>{'Jersey: ' + info.jersey}</p>
+      <p>{'School: ' + info.school}</p>
+      <p>{'Experience: ' + info.seasonExp}</p>
+      {/*}<p>{JSON.stringify(props)}</p>*/}
     </div>
   );
 }
