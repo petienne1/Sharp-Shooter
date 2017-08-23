@@ -3,6 +3,7 @@ import axios from 'axios';
 import SweetScroll from 'sweet-scroll';
 import PlayerProfile from './playerProfile.jsx';
 import App from './playerProfile.jsx';
+import Select from './select.jsx';
 
 
 export default class Search extends React.Component {
@@ -13,7 +14,7 @@ export default class Search extends React.Component {
       searchTerm: '',
       searchUrl: '',
       showPlayerProfile: false,
-      playerData: '',
+      showSelect: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,10 +28,13 @@ export default class Search extends React.Component {
     e.preventDefault();
     console.log(this.state.searchTerm);
     const playerObject = axios.get(`/stats/playerstats?player=${this.state.searchTerm}`);
-      playerObject.then((response) => {
-        this.props.addPlayer(response.data);
-      },
-    );
+    const playerShots = axios.get(`/stats/shots?player=${this.state.searchTerm}`);
+    playerObject.then((response) => {
+      this.props.addPlayer(response.data);
+    })
+    playerShots.then((response) => {
+      this.props.addPlayer(response.data);
+    })
     // console.log('PLAYER OBJECT', playerObject)
 
   }
@@ -48,7 +52,10 @@ export default class Search extends React.Component {
       <div className="header-container">
         <div className="header-info">
           <h1 className="app-name">Sharp Shooter</h1>
-          <form className="form-group" onSubmit={this.handleSubmit}>
+          <form
+            className="form-group"
+            onSubmit={this.handleSubmit}
+          >
             <input
               className="header-input"
               onChange={this.handleChange}

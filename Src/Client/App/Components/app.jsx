@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './search.jsx';
 import PlayerProfile from './playerProfile.jsx';
+import Select from './select.jsx';
 
 class App extends React.Component {
   // In order to reference App component inside of another method
@@ -19,27 +20,19 @@ class App extends React.Component {
     this.setState({ playerObject });
   }
 
+  addShots
+
   render() {
     return (
       <div>
         <Search addPlayer={this.addPlayer} />
         {this.state.playerObject && <PlayerProfile
           playerInfo={this.state.playerObject}
-          bananas="bananas"
         />}
+        {this.state.playerObject && <Select playerInfo={this.state.playerObjet} />}
       </div>
     );
   }
 }
 
 export default App;
-
-// const callback = (response) => {
-//   console.log(response)
-// }
-//
-// http.get(url, callback)
-// console.log('http is done... kinda')
-//
-// const promise = axios.get(url)
-// promise.then(callback)
