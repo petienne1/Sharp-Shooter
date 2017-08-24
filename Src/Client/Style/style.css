@@ -1,4 +1,3 @@
-
 /* Landing Page - Search Component */
 .app-name {
   color: white;
@@ -15,12 +14,10 @@
 
 .main-container {
   position: relative;
-  /*background-image: url(./images/shooters/thompson-curry.jpeg);*/
   background-size: cover;
   background-position: center;
   height: 100vh;
   width: 100vw;
-  /*display: flex;*/
   justify-content: center;
   text-align: center;
   vertical-align: middle;

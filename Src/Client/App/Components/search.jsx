@@ -19,8 +19,8 @@ export default class Search extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.images = ['../../Style/images/shooters/allen.jpg', '../../Style/images/shooters/birdshot.jpg', '../../Style/images/shooters/jordanfinalshot.jpg', '../../Style/images/shooters/curry.jpg', '../../Style/images/shooters/durant.jpg'];
-    this.randomImg = this.images[Math.floor(Math.random()* this.images.length)] ;
-    this.divStyle =  {backgroundImage: 'url(' + this.randomImg + ')'}
+    this.randomImg = this.images[Math.floor(Math.random() * this.images.length)];
+    this.divStyle = { backgroundImage: 'url(' + this.randomImg + ')' }
   }
 
   handleChange(event) {
