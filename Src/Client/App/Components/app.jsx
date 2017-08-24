@@ -11,6 +11,7 @@ class App extends React.Component {
     super(props);
     // looks for method and binds it to App component so that this can equal App
     this.addPlayer = this.addPlayer.bind(this);
+    this.addShots = this.addShots.bind(this);
     // getInitialState
     this.state = {};
   }
@@ -20,7 +21,9 @@ class App extends React.Component {
     this.setState({ playerObject });
   }
 
-  addShots
+  addShots(playerShots) {
+    this.setState({ playerShots });
+  }
 
   render() {
     return (
@@ -29,7 +32,8 @@ class App extends React.Component {
         {this.state.playerObject && <PlayerProfile
           playerInfo={this.state.playerObject}
         />}
-        {this.state.playerObject && <Select playerInfo={this.state.playerObjet} />}
+        {this.state.playerObject &&
+          <Select playerInfo={this.state.playerObjet} shotInfo={this.state.playerShots} />}
       </div>
     );
   }

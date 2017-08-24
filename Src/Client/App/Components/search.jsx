@@ -31,12 +31,10 @@ export default class Search extends React.Component {
     const playerShots = axios.get(`/stats/shots?player=${this.state.searchTerm}`);
     playerObject.then((response) => {
       this.props.addPlayer(response.data);
-    })
+    });
     playerShots.then((response) => {
       this.props.addPlayer(response.data);
-    })
-    // console.log('PLAYER OBJECT', playerObject)
-
+    });
   }
 
 

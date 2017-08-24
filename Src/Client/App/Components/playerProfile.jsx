@@ -16,12 +16,15 @@ const PlayerProfile = (props) => {
   return (
     <div className="profile-container">
       <div className="profile-pic-item" >
-        <img src={`/Style/images/profile/${firstName + lastName}.png`}
+        <img
+          src={`/Style/images/profile/${firstName + lastName}.png`}
+          alt=" "
           ref={img => image = img}
-          onError={setDefaultImg} />
+          onError={setDefaultImg}
+        />
       </div>
       <div className="profile-name-item">{ info.firstName + ' ' + info.lastName }</div>
-        {/*<div className="profile-name-item">{ `${firstName} ${lastName}` }</div>*/}
+      { /* <div className="profile-name-item">{ `${firstName} ${lastName}` }</div> */}
       <p>{'Team: ' + info.teamCity + ' ' + info.teamName}</p>
       <p>{'Position: ' + info.position}</p>
       <p>{'Height: ' + info.height}</p>
@@ -29,9 +32,9 @@ const PlayerProfile = (props) => {
       <p>{'Jersey: ' + info.jersey}</p>
       <p>{'School: ' + info.school}</p>
       <p>{'Experience: ' + info.seasonExp}</p>
-      {/*}<p>{JSON.stringify(props)}</p>*/}
+      {/* }<p>{JSON.stringify(props)}</p> */}
     </div>
   );
-}
+};
 
 export default PlayerProfile;
