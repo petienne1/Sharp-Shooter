@@ -18,6 +18,9 @@ export default class Search extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.images = ['../../Style/images/shooters/allen.jpg', '../../Style/images/shooters/birdshot.jpg', '../../Style/images/shooters/jordanfinalshot.jpg', '../../Style/images/shooters/curry.jpg', '../../Style/images/shooters/durant.jpg'];
+    this.randomImg = this.images[Math.floor(Math.random()* this.images.length)] ;
+    this.divStyle =  {backgroundImage: 'url(' + this.randomImg + ')'}
   }
 
   handleChange(event) {
@@ -47,7 +50,7 @@ export default class Search extends React.Component {
 
   render() {
     return (
-      <div className="main-container">
+      <div className="main-container" style={this.divStyle}>
         <div className="input-wrapper">
           {/* <div className="header-info"> */}
             <h1 className="app-name">Sharp Shooter</h1>
@@ -56,7 +59,7 @@ export default class Search extends React.Component {
               onSubmit={this.handleSubmit}
             >
               <input
-                className="header-input"
+                className="input-field"
                 onChange={this.handleChange}
                 type="search"
                 placeholder="Search for a player..."
