@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Select = () => {
+const Select = (props) => {
+  console.log(props);
   return (
     <div className="select-container">
       <h1>Seasons</h1>

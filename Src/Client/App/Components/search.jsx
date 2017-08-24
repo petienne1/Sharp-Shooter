@@ -47,41 +47,43 @@ export default class Search extends React.Component {
 
   render() {
     return (
-      <div className="header-container">
-        <div className="header-info">
-          <h1 className="app-name">Sharp Shooter</h1>
-          <form
-            className="form-group"
-            onSubmit={this.handleSubmit}
-          >
-            <input
-              className="header-input"
-              onChange={this.handleChange}
-              type="search"
-              placeholder="Search for a player..."
-              value={this.state.searchTerm}
-            />
-            <ul className="list-inline intro-buttons">
-              <li>
-                <button
-                  type="submit"
-                  className="btn btn-default btn-lg"
-                  onSubmit={this.loadPlayerData}
-                >
-                  <span className="button-name">Search</span>
-                </button>
+      <div className="main-container">
+        <div className="input-wrapper">
+          {/* <div className="header-info"> */}
+            <h1 className="app-name">Sharp Shooter</h1>
+            <form
+              className="form-group"
+              onSubmit={this.handleSubmit}
+            >
+              <input
+                className="header-input"
+                onChange={this.handleChange}
+                type="search"
+                placeholder="Search for a player..."
+                value={this.state.searchTerm}
+              />
+              <ul className="list-inline intro-buttons">
+                <li>
+                  <button
+                    type="submit"
+                    className="btn btn-default btn-lg"
+                    onSubmit={this.loadPlayerData}
+                  >
+                    <span className="button-name">Search</span>
+                  </button>
 
-              </li>
-              <li>
-                <button className="btn btn-default btn-lg">
-                  <span className="button-name">Advanced</span></button>
-              </li>
-              <li>
-                <button className="btn btn-default btn-lg">
-                  <span className="button-name">Compare</span></button>
-              </li>
-            </ul>
-          </form>
+                </li>
+                <li>
+                  <button className="btn btn-default btn-lg">
+                    <span className="button-name">Advanced</span></button>
+                </li>
+                <li>
+                  <button className="btn btn-default btn-lg">
+                    <span className="button-name">Compare</span></button>
+                </li>
+              </ul>
+            </form>
+          {/* </div> */}
         </div>
         <div className="player-profile">{this.state.showPlayerProfile ?
           <PlayerProfile /> : null}</div>
