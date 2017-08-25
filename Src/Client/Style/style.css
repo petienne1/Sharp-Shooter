@@ -88,18 +88,27 @@
 }
 
 .profile-pic-item {
-  /*display: flex;
-  flex-direction: row;*/
+  display: flex;
+  flex-direction: row;
   /*background-image: url(./images/profile/stephencurry.png);*/
   width: 350px;
   height: 254px;
+  margin-right: -500px;
+}
+
+.profile-logo-item {
+  position: relative;
+  top: -16px;
+  right: -706px;
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 500px;
 }
 
 .profile-name-item {
-  /*display: flex;
-  flex-direction: row;*/
   font-size: 50px;
-  padding-left: 35px;
+  padding-left: 19px;
 }
 
 /* Select Component */

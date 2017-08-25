@@ -33,10 +33,10 @@ class App extends React.Component {
           playerInfo={this.state.playerObject}
         />}
         {this.state.playerObject &&
-          <Select
-            playerInfo={this.state.playerObject}
-            shotInfo={this.state.playerShots}
-          />}
+        <Select
+          playerInfo={this.state.playerObject}
+          shotInfo={this.state.playerShots}
+        />}
       </div>
     );
   }
