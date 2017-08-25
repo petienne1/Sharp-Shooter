@@ -23,15 +23,15 @@ const PlayerProfile = (props) => {
           ref={img => image = img}
           onError={setDefaultImg}
         />
+        <div className="profile-logo-item">
+          <img
+            src={`/Style/images/logo/${teamCode}.png`}
+            alt=" "
+            ref={img => image = img}
+          />
+        </div>
       </div>
       <div className="profile-name-item">{ info.firstName + ' ' + info.lastName }</div>
-      <div className="profile-logo-item">
-        <img
-          src={`/Style/images/logo/${teamCode}.png`}
-          alt=" "
-          ref={img => image = img}
-        />
-      </div>
       { /* <div className="profile-name-item">{ `${firstName} ${lastName}` }</div> */}
       <p>{'Team: ' + info.teamCity + ' ' + info.teamName}</p>
       <p>{'Position: ' + info.position}</p>
