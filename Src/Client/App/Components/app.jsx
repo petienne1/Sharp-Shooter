@@ -28,12 +28,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Search addPlayer={this.addPlayer} />
+        <Search addPlayer={this.addPlayer} addShots={this.addShots} />
         {this.state.playerObject && <PlayerProfile
           playerInfo={this.state.playerObject}
         />}
         {this.state.playerObject &&
-          <Select playerInfo={this.state.playerObjet} shotInfo={this.state.playerShots} />}
+          <Select
+            playerInfo={this.state.playerObject}
+            shotInfo={this.state.playerShots}
+          />}
       </div>
     );
   }

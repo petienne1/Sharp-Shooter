@@ -21,7 +21,6 @@ export default class Search extends React.Component {
     this.images = ['../../Style/images/shooters/allen.jpg', '../../Style/images/shooters/birdshot.jpg', '../../Style/images/shooters/jordanfinalshot.jpg', '../../Style/images/shooters/curry.jpg', '../../Style/images/shooters/durant.jpg'];
     this.randomImg = this.images[Math.floor(Math.random() * this.images.length)];
     this.divStyle = { backgroundImage: 'url(' + this.randomImg + ')' };
-
   }
 
   handleChange(event) {
@@ -36,10 +35,10 @@ export default class Search extends React.Component {
     playerObject.then((response) => {
       this.props.addPlayer(response.data);
     }).then((res) => {
-      this.setState({searchTerm: ''});
-    })
+      this.setState({ searchTerm: '' });
+    });
     playerShots.then((response) => {
-      this.props.addPlayer(response.data);
+      this.props.addShots(response.data);
     });
   }
 
