@@ -11,6 +11,7 @@ app.get('/players', (request, response) => {
 // app.get('players', Controller.getPlayerName);
 app.get('/playerstats', Controller.getPlayerStats);
 app.get('/shots', Controller.getPlayerShots);
+app.post('/seasons', Controller.getSeasons);
 
 
 module.exports = app;

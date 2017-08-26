@@ -34,14 +34,28 @@ export default class Search extends React.Component {
     const playerObject = axios.get(`/stats/playerstats?player=${this.state.searchTerm}`);
     const playerShots = axios.get(`/stats/shots?player=${this.state.searchTerm}`);
     playerObject.then((response) => {
+      console.log('response in Player Object is: ', response)
       this.props.addPlayer(response.data);
-    }).then((res) => {
-      this.setState({searchTerm: ''});
+      axios.post('/stats/seasons', {
+        ID: response.data.commonPlayerInfo[0].personId,
+      })
+      .then((data) => {
+        console.log('hello?!!')
+        // console.log('data in Seasons is:', data)
+        const seasons = data.data.slice().map(function(season) {
+          return season.slice(0, 4)
+        })
+        console.log(seasons)
+        this.props.addSeasons(seasons);
+      })
+    })  
+  playerShots.then((response) => {
+      this.props.addShots(response.data);
     })
-    playerShots.then((response) => {
-      this.props.addPlayer(response.data);
-    });
-  }
+  .then((res) => {
+    this.setState({searchTerm: ''});
+  })
+}
 
 
   // handleKeyUp(event) {
