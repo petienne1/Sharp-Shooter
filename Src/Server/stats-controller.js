@@ -1,4 +1,7 @@
+const axios = require('axios');
+
 const NBA = require('nba');
+
 
 module.exports = {
 
@@ -32,4 +35,15 @@ module.exports = {
         response.send(results.shot_Chart_Detail);
       });
   },
+  getSeasons: (request, response) => {
+    // console.log('request.data in getSeasons is:' , request.body.ID)
+    const queryString = `http://stats.nba.com/stats/playercareerstats?LeagueID=00&PerMode=PerGame&PlayerID=${request.body.ID}`;
+    axios.get(queryString)
+      .then((results) => {
+        // console.log(results.data.resultSets[0])
+        response.send(results.data.resultSets[0].rowSet)
+      })
+  },
+  
 };
+

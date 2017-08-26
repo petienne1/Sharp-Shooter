@@ -4,6 +4,7 @@ import React from 'react';
 const PlayerProfile = (props) => {
   // we can do anything here
   console.log(props);
+  console.log('hello?')
   //
   const info = props.playerInfo.commonPlayerInfo[0];
   // Object Destructuring
