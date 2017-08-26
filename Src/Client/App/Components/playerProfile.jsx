@@ -10,6 +10,7 @@ const PlayerProfile = (props) => {
   // Object Destructuring
   const { firstName, lastName } = info;
   // const string = `stuff ${1 + 1} put whatever we want ${1 > 2} more stuff`
+  const { teamCode } = info;
 
   let image;
   const setDefaultImg = () => image.src = '/Style/images/profile/silhouette.png'
@@ -23,6 +24,13 @@ const PlayerProfile = (props) => {
           ref={img => image = img}
           onError={setDefaultImg}
         />
+        <div className="profile-logo-item">
+          <img
+            src={`/Style/images/logo/${teamCode}.png`}
+            alt=" "
+            ref={img => image = img}
+          />
+        </div>
       </div>
       <div className="profile-name-item">{ info.firstName + ' ' + info.lastName }</div>
       { /* <div className="profile-name-item">{ `${firstName} ${lastName}` }</div> */}

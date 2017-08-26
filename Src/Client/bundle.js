@@ -10452,6 +10452,9 @@ var PlayerProfile = function PlayerProfile(props) {
       lastName = info.lastName;
   // const string = `stuff ${1 + 1} put whatever we want ${1 > 2} more stuff`
 
+  var teamCode = info.teamCode;
+
+
   var image = void 0;
   var setDefaultImg = function setDefaultImg() {
     return image.src = '/Style/images/profile/silhouette.png';
@@ -10470,7 +10473,18 @@ var PlayerProfile = function PlayerProfile(props) {
           return image = img;
         },
         onError: setDefaultImg
-      })
+      }),
+      _react2.default.createElement(
+        'div',
+        { className: 'profile-logo-item' },
+        _react2.default.createElement('img', {
+          src: '/Style/images/logo/' + teamCode + '.png',
+          alt: ' ',
+          ref: function ref(img) {
+            return image = img;
+          }
+        })
+      )
     ),
     _react2.default.createElement(
       'div',
@@ -23412,7 +23426,6 @@ var Search = function (_React$Component) {
     _this.images = ['../../Style/images/shooters/allen.jpg', '../../Style/images/shooters/birdshot.jpg', '../../Style/images/shooters/jordanfinalshot.jpg', '../../Style/images/shooters/curry.jpg', '../../Style/images/shooters/durant.jpg'];
     _this.randomImg = _this.images[Math.floor(Math.random() * _this.images.length)];
     _this.divStyle = { backgroundImage: 'url(' + _this.randomImg + ')' };
-
     return _this;
   }
 
