@@ -16,6 +16,7 @@ class Select extends React.Component {
     
   }
   render() {
+    const personId = this.props.personId;
    return (
       <div className="select-container">
       <h1>Seasons</h1>
@@ -23,7 +24,7 @@ class Select extends React.Component {
       <div>
       {
         this.props.seasons.map(function(season, i) {
-          return <YearItem key={i} year={season} /> 
+          return <YearItem key={i} year={season} personId={personId} /> 
         })
       }
       </div>

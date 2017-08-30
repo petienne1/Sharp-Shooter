@@ -49,7 +49,7 @@ class App extends React.Component {
           shotInfo={this.state.playerShots}
         />}
         {this.state.playerShots && this.state.seasons &&
-          <Select playerInfo={this.state.playerObject} shotInfo={this.state.playerShots} seasons={this.state.seasons}/>}
+          <Select playerInfo={this.state.playerObject} shotInfo={this.state.playerShots} seasons={this.state.seasons} personId={this.state.playerObject.commonPlayerInfo[0].personId} />}
       </div>
     );
   }

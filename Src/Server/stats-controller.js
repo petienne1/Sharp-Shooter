@@ -25,7 +25,7 @@ module.exports = {
   },
 
   getPlayerShots: (request, response) => {
-    console.log(request.query);
+    console.log('in get playershots request.query is: ',request.query);
     const player = request.query.player;
     const season = request.query.season;
     const playerInfo = NBA.findPlayer(player);
@@ -34,6 +34,15 @@ module.exports = {
       .then((results) => {
         response.send(results.shot_Chart_Detail);
       });
+    // response.send('test')
+  },
+  getShots: (request, response) => {
+    // console.log('request.body: ', request.body)
+    NBA.stats.shots({ PlayerID: request.body.PlayerID, Season: request.body.Season, GameID: request.body.GameID,})
+    .then((res) => {
+      console.log(res)
+      response.send('GotShots')
+    })
   },
   getSeasons: (request, response) => {
     console.log('request.data in getSeasons is:' , request.body.ID)
@@ -44,6 +53,14 @@ module.exports = {
         response.send(results.data.resultSets[0].rowSet)
       })
   },
-  
+  getGames: (request, response) => {
+    // console.log(request.body)
+    const queryString = `http://stats.nba.com/stats/playergamelog/?PlayerID=${request.body.personId}&Season=${request.body.Season}&SeasonType=Regular Season`;
+    axios.get(queryString)
+    .then((results) => {
+      // console.log(results.data.resultSets[0].rowSet)
+      response.send(results.data.resultSets[0].rowSet);
+    })
+  }
 };
 
