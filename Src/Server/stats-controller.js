@@ -36,7 +36,7 @@ module.exports = {
       });
   },
   getSeasons: (request, response) => {
-    // console.log('request.data in getSeasons is:' , request.body.ID)
+    console.log('request.data in getSeasons is:' , request.body.ID)
     const queryString = `http://stats.nba.com/stats/playercareerstats?LeagueID=00&PerMode=PerGame&PlayerID=${request.body.ID}`;
     axios.get(queryString)
       .then((results) => {

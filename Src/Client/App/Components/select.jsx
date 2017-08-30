@@ -22,8 +22,8 @@ class Select extends React.Component {
       <ul>
       <div>
       {
-        this.props.years.map(function(year, i) {
-          return <YearItem key={i} year={year} /> 
+        this.props.seasons.map(function(season, i) {
+          return <YearItem key={i} year={season} /> 
         })
       }
       </div>
