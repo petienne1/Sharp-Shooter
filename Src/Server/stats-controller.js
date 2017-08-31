@@ -37,10 +37,17 @@ module.exports = {
     // response.send('test')
   },
   getShots: (request, response) => {
-    // console.log('request.body: ', request.body)
-    NBA.stats.shots({ PlayerID: request.body.PlayerID, Season: request.body.Season, GameID: request.body.GameID,})
+    console.log('request.body: ', request.body)
+    NBA.stats.shots({ PlayerID: request.body.PlayerID, Season: request.body.Season, GameID: Number(request.body.GameID),})
     .then((res) => {
-      console.log(res)
+      // console.log(request.body.GameID)
+      // res.shot_Chart_Detail.forEach((shot) => {
+      //   if (shot.gameId === '0021601131') {
+      //     console.log(true)
+      //   }
+      // })
+      // console.log('looped')
+      console.log(res.shot_Chart_Detail)
       response.send('GotShots')
     })
   },
