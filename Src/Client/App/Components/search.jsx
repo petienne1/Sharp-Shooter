@@ -21,7 +21,8 @@ export default class Search extends React.Component {
     this.images = ['../../Style/images/shooters/allen.jpg', '../../Style/images/shooters/birdshot.jpg', '../../Style/images/shooters/jordanfinalshot.jpg', '../../Style/images/shooters/curry.jpg', '../../Style/images/shooters/durant.jpg'];
     this.randomImg = this.images[Math.floor(Math.random() * this.images.length)];
     this.divStyle = { backgroundImage: 'url(' + this.randomImg + ')' };
-    this.findSeasons = this.findSeasons.bind(this); 
+    this.findSeasons = this.findSeasons.bind(this);
+    this.scrollDown = this.scrollDown.bind(this);
   }
 
   findSeasons(start, end) {
@@ -30,7 +31,7 @@ export default class Search extends React.Component {
         arr.push(i + '-' + (i+1))
       }
       this.props.addSeasons(arr)
-    }  
+    }
 
   handleChange(event) {
     this.setState({ searchTerm: event.target.value });
@@ -42,7 +43,7 @@ export default class Search extends React.Component {
     const playerObject = axios.get(`/stats/playerstats?player=${this.state.searchTerm}`);
     const playerShots = axios.get(`/stats/shots?player=${this.state.searchTerm}`);
     playerObject.then((response) => {
-      console.log('response in Player Object is: ', response)
+      console.log('response in Player Object is: ', response);
       this.props.addPlayer(response.data);
       this.findSeasons(response.data.commonPlayerInfo[0].fromYear, response.data.commonPlayerInfo[0].toYear)
       // axios.post('/stats/seasons', {
@@ -57,14 +58,19 @@ export default class Search extends React.Component {
       //   console.log(seasons)
       //   this.props.addSeasons(seasons);
       // })
-    })  
+    })
   playerShots.then((response) => {
       this.props.addShots(response.data);
     })
   .then((res) => {
-    this.setState({searchTerm: ''});
-  })
-}
+    this.setState({ searchTerm: '' });
+  });
+  }
+
+  const scrollDown = () => {
+    const sweetScroll = new SweetScroll();
+    sweetScroll.to(0, 60);
+  };
 
 
   // handleKeyUp(event) {
@@ -82,7 +88,7 @@ export default class Search extends React.Component {
           <h1 className="app-name">Sharp Shooter</h1>
           <form
             className="form-group"
-            onSubmit={this.handleSubmit}
+            onSubmit={() => {this.handleSubmit(); this.scrollDown()}}
           >
             <input
               className="input-field"
