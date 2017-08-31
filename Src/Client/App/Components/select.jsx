@@ -16,14 +16,15 @@ class Select extends React.Component {
     
   }
   render() {
+    const personId = this.props.personId;
    return (
       <div className="select-container">
       <h1>Seasons</h1>
       <ul>
       <div>
       {
-        this.props.years.map(function(year, i) {
-          return <YearItem key={i} year={year} /> 
+        this.props.seasons.map(function(season, i) {
+          return <YearItem key={i} year={season} personId={personId} /> 
         })
       }
       </div>
