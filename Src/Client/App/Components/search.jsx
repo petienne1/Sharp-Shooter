@@ -21,6 +21,7 @@ export default class Search extends React.Component {
     this.images = ['../../Style/images/shooters/allen.jpg', '../../Style/images/shooters/birdshot.jpg', '../../Style/images/shooters/jordanfinalshot.jpg', '../../Style/images/shooters/curry.jpg', '../../Style/images/shooters/durant.jpg'];
     this.randomImg = this.images[Math.floor(Math.random() * this.images.length)];
     this.divStyle = { backgroundImage: 'url(' + this.randomImg + ')' };
+    this.scrollDown = this.scrollDown.bind(this);
   }
 
   handleChange(event) {
@@ -33,28 +34,33 @@ export default class Search extends React.Component {
     const playerObject = axios.get(`/stats/playerstats?player=${this.state.searchTerm}`);
     const playerShots = axios.get(`/stats/shots?player=${this.state.searchTerm}`);
     playerObject.then((response) => {
-      console.log('response in Player Object is: ', response)
+      console.log('response in Player Object is: ', response);
       this.props.addPlayer(response.data);
       axios.post('/stats/seasons', {
         ID: response.data.commonPlayerInfo[0].personId,
       })
       .then((data) => {
-        console.log('hello?!!')
+        console.log('hello?!!');
         // console.log('data in Seasons is:', data)
-        const seasons = data.data.slice().map(function(season) {
-          return season.slice(0, 4)
-        })
-        console.log(seasons)
+        const seasons = data.data.slice().map((season) => {
+          return season.slice(0, 4);
+        });
+        console.log(seasons);
         this.props.addSeasons(seasons);
-      })
-    })  
-  playerShots.then((response) => {
+      });
+    });
+    playerShots.then((response) => {
       this.props.addShots(response.data);
     })
   .then((res) => {
-    this.setState({searchTerm: ''});
-  })
-}
+    this.setState({ searchTerm: '' });
+  });
+  }
+
+  const scrollDown = () => {
+    const sweetScroll = new SweetScroll();
+    sweetScroll.to(0, 60);
+  };
 
 
   // handleKeyUp(event) {
@@ -72,7 +78,7 @@ export default class Search extends React.Component {
           <h1 className="app-name">Sharp Shooter</h1>
           <form
             className="form-group"
-            onSubmit={this.handleSubmit}
+            onSubmit={() => {this.handleSubmit(); this.scrollDown()}}
           >
             <input
               className="input-field"
