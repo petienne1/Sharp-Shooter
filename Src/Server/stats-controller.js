@@ -38,7 +38,7 @@ module.exports = {
   },
   getShots: (request, response) => {
     console.log('request.body: ', request.body)
-    NBA.stats.shots({ PlayerID: request.body.PlayerID, Season: request.body.Season, GameID: Number(request.body.GameID),})
+    NBA.stats.shots({ PlayerID: request.body.PlayerID, Season: request.body.Season, GameID: request.body.gameID})
     .then((res) => {
       // console.log(request.body.GameID)
       // res.shot_Chart_Detail.forEach((shot) => {

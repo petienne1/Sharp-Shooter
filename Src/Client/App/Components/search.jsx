@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import SweetScroll from 'sweet-scroll';
+import Scroll from 'react-scroll';
 import PlayerProfile from './playerProfile.jsx';
 import App from './playerProfile.jsx';
 import Select from './select.jsx';
@@ -22,7 +23,11 @@ export default class Search extends React.Component {
     this.randomImg = this.images[Math.floor(Math.random() * this.images.length)];
     this.divStyle = { backgroundImage: 'url(' + this.randomImg + ')' };
     this.findSeasons = this.findSeasons.bind(this);
+<<<<<<< HEAD
     this.scrollDown = this.scrollDown.bind(this);
+=======
+    this.sweetScroll = this.sweetScroll.bind(this);
+>>>>>>> master
   }
 
   findSeasons(start, end) {
@@ -72,6 +77,21 @@ export default class Search extends React.Component {
     sweetScroll.to(0, 60);
   };
 
+  // sweetScroll() {
+  //   console.log('scrolling down');
+  //   const height = this.props.windowHeight - 62;
+  //   console.log([0, this.props.windowHeight - 62]);
+  //   sweetScroll.to(height, 0);
+  // }
+  componentDidMount() {
+    this.sweetScroll = new SweetScroll();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.showPlayerProfile) {
+      this.sweetScroll.toElement(document.getElementById('player-profile'));
+    }
+  }
 
   // handleKeyUp(event) {
   //   if (event.key === 'Enter' && this.state.searchTerm !== '') {
@@ -102,7 +122,7 @@ export default class Search extends React.Component {
                 <button
                   type="submit"
                   className="btn btn-default btn-lg"
-                  onSubmit={this.loadPlayerData}
+                  onSubmit={this.loadPlayerData && this.sweetScroll}
                 >
                   <span className="button-name">Search</span>
                 </button>
