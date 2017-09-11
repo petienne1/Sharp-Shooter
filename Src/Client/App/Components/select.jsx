@@ -9,12 +9,12 @@ class Select extends React.Component {
     this.state = {};
 
     console.log('props is Select are: ', props);
-    
+
    }
     
-  componentWillMount() {
-    
-  }
+  // componentWillMount() {
+  //
+  // }
   render() {
     const personId = this.props.personId;
    return (
@@ -24,15 +24,15 @@ class Select extends React.Component {
       <div>
       {
         this.props.seasons.map(function(season, i) {
-          return <YearItem key={i} year={season} personId={personId} /> 
+          return <YearItem key={i} year={season} personId={personId} />
         })
       }
       </div>
-      
+
       </ul>
     </div>
     )
-  }    
+  }
 }
 
 export default Select;

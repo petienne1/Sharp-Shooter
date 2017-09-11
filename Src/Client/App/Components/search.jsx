@@ -23,11 +23,8 @@ export default class Search extends React.Component {
     this.randomImg = this.images[Math.floor(Math.random() * this.images.length)];
     this.divStyle = { backgroundImage: 'url(' + this.randomImg + ')' };
     this.findSeasons = this.findSeasons.bind(this);
-<<<<<<< HEAD
-    this.scrollDown = this.scrollDown.bind(this);
-=======
-    this.sweetScroll = this.sweetScroll.bind(this);
->>>>>>> master
+    // this.scrollDown = this.scrollDown.bind(this);
+    // this.sweetScroll = this.sweetScroll.bind(this);
   }
 
   findSeasons(start, end) {
@@ -72,10 +69,10 @@ export default class Search extends React.Component {
   });
   }
 
- scrollDown() {
-    const sweetScroll = new SweetScroll();
-    sweetScroll.to(0, 60);
-  };
+ // scrollDown() {
+ //    const sweetScroll = new SweetScroll();
+ //    sweetScroll.to(0, 60);
+ //  };
 
   // sweetScroll() {
   //   console.log('scrolling down');
@@ -83,15 +80,15 @@ export default class Search extends React.Component {
   //   console.log([0, this.props.windowHeight - 62]);
   //   sweetScroll.to(height, 0);
   // }
-  componentDidMount() {
-    this.sweetScroll = new SweetScroll();
-  }
+  // componentDidMount() {
+  //   this.sweetScroll = new SweetScroll();
+  // }
 
-  componentWillUpdate(nextProps, nextState) {
-    if (nextState.showPlayerProfile) {
-      this.sweetScroll.toElement(document.getElementById('player-profile'));
-    }
-  }
+  // componentWillUpdate(nextProps, nextState) {
+  //   if (nextState.showPlayerProfile) {
+  //     this.sweetScroll.toElement(document.getElementById('profile-container'));
+  //   }
+  // }
 
   // handleKeyUp(event) {
   //   if (event.key === 'Enter' && this.state.searchTerm !== '') {
@@ -108,7 +105,7 @@ export default class Search extends React.Component {
           <h1 className="app-name">Sharp Shooter</h1>
           <form
             className="form-group"
-            onSubmit={() => {this.handleSubmit(); this.scrollDown()}}
+            onSubmit={() => { this.handleSubmit()} }
           >
             <input
               className="input-field"
@@ -122,7 +119,7 @@ export default class Search extends React.Component {
                 <button
                   type="submit"
                   className="btn btn-default btn-lg"
-                  onSubmit={this.loadPlayerData && this.sweetScroll}
+                  onSubmit={this.loadPlayerData}
                 >
                   <span className="button-name">Search</span>
                 </button>

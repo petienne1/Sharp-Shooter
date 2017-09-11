@@ -19,9 +19,9 @@ class Selectplayer extends Component {
         onChange={(selectValue) => {
           this.props.handleSetPlayer(selectValue);
           this.props.handleClearPlayer();
-          const sweetScroll = new SweetScroll();
-          const height = this.props.windowHeight - 62;
-          sweetScroll.to(height, 0);
+          // const sweetScroll = new SweetScroll();
+          // const height = this.props.windowHeight - 62;
+          // sweetScroll.to(height, 0);
         }}
         options={options}
         filterOptions={filterOptions}
