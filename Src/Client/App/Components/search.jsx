@@ -67,7 +67,7 @@ export default class Search extends React.Component {
   });
   }
 
-  const scrollDown = () => {
+ scrollDown() {
     const sweetScroll = new SweetScroll();
     sweetScroll.to(0, 60);
   };
